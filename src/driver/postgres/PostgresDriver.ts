@@ -896,6 +896,11 @@ export class PostgresDriver implements Driver {
      * If driver dependency is not given explicitly, then try to load it via "require".
      */
     protected loadDependencies(): void {
+        if (this.options.driver) {
+            this.postgres = this.options.driver;
+            return;
+        }
+
         try {
             this.postgres = PlatformTools.load("pg");
             try {

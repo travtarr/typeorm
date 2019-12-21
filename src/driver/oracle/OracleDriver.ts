@@ -666,6 +666,11 @@ export class OracleDriver implements Driver {
      * Loads all driver dependencies.
      */
     protected loadDependencies(): void {
+        if (this.options.driver) {
+            this.oracle = this.options.driver;
+            return;
+        }
+
         try {
             this.oracle = PlatformTools.load("oracledb");
 

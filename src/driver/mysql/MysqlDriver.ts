@@ -801,6 +801,11 @@ export class MysqlDriver implements Driver {
      * Loads all driver dependencies.
      */
     protected loadDependencies(): void {
+        if (this.options.driver) {
+            this.mysql = this.options.driver;
+            return;
+        }
+
         try {
             this.mysql = PlatformTools.load("mysql");  // try to load first supported package
             /*

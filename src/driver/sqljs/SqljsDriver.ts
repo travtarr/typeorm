@@ -272,6 +272,11 @@ export class SqljsDriver extends AbstractSqliteDriver {
      * If driver dependency is not given explicitly, then try to load it via "require".
      */
     protected loadDependencies(): void {
+        if (this.options.driver) {
+            this.sqlite = this.options.driver;
+            return;
+        }
+
         if (PlatformTools.type === "browser") {
             this.sqlite = window.SQL;
         }
