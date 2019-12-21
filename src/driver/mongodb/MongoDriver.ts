@@ -412,6 +412,11 @@ export class MongoDriver implements Driver {
      * Loads all driver dependencies.
      */
     protected loadDependencies(): any {
+        if (this.options.driver) {
+            this.mongodb = this.options.driver;
+            return;
+        }
+
         try {
             this.mongodb = PlatformTools.load("mongodb");  // try to load native driver dynamically
 

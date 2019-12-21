@@ -109,6 +109,12 @@ export interface BaseConnectionOptions {
     readonly entityPrefix?: string;
 
     /**
+     * Pass driver in explicitly. 
+     * Useful when you want to wrap the underlying driver with libraries such as Amazon's X-Ray tool.
+     */
+    readonly driver?: any;
+
+    /**
      * Extra connection options to be passed to the underlying driver.
      *
      * todo: deprecate this and move all database-specific types into hts own connection options object.

@@ -92,6 +92,9 @@ As an alternative, you can use CLI and run migration:run command.
 * `migrationsTableName` - Name of the table in the database which is going to contain information about executed migrations.
 By default this table is called "migrations".
 
+* `driver` - The underlying database driver package. Overrides automatic require call of package and instead uses the
+supplied driver package.
+
 * `cache` - Enables entity result caching. You can also configure cache type and other cache options here.
 Read more about caching [here](./caching.md).
 

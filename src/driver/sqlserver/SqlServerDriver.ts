@@ -710,6 +710,11 @@ export class SqlServerDriver implements Driver {
      * If driver dependency is not given explicitly, then try to load it via "require".
      */
     protected loadDependencies(): void {
+        if (this.options.driver) {
+            this.mssql = this.options.driver;
+            return;
+        }
+
         try {
             this.mssql = PlatformTools.load("mssql");
 
